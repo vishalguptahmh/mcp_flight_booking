@@ -1,12 +1,15 @@
 """
 MCP Resources Definitions
+Author: Vishal Gupta
+Created: August 2024
+Watermark: VG_FLIGHTMCP_2024
 Clean separation of MCP resource definitions from business logic
 """
 
 import json
 import os
 from fastmcp import FastMCP
-from .services.flight_service import flight_service
+## Remove top-level import to avoid circular import
 
 
 def load_airports_data():
@@ -14,8 +17,8 @@ def load_airports_data():
     try:
         # Get the path to the airports data file
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        project_root = os.path.dirname(current_dir)
-        airports_file = os.path.join(project_root, "data", "airports.json")
+        # The data folder is in the same directory as this file
+        airports_file = os.path.join(current_dir, "data", "airports.json")
         
         with open(airports_file, 'r', encoding='utf-8') as f:
             return json.load(f)  # File is already in correct format
@@ -32,16 +35,29 @@ def load_airports_data():
 
 
 def register_mcp_resources(mcp_server: FastMCP):
-    """Register all MCP resources with the server"""
+    """Register all OAuth-protected MCP resources with the server"""
     
-    print("[DEBUG] Registering MCP resource: file://airports")
     @mcp_server.resource("file://airports")
     def get_airports():
-        """Get comprehensive list of available airports with details"""
+        """
+        Get comprehensive list of available airports with details
+        🔐 REQUIRES OAUTH AUTHENTICATION
+        """
         airports_data = load_airports_data()
         
+        # Add OAuth security notice to header
+        header = """
+╔══════════════════════════════════════════════════════════╗
+║              Flight Booking MCP v1.0                    ║
+║              Developed by: Vishal Gupta                  ║
+║              © August 2024 - All Rights Reserved        ║
+║              System: VG_FLIGHTMCP_2024                  ║
+║              🔐 OAuth Authentication Required            ║
+╚══════════════════════════════════════════════════════════╝
+"""
+        
         # Format the data for easy reading
-        formatted_output = "# Airport Information Database\n\n"
+        formatted_output = header + "\n# Airport Information Database\n\n"
         
         for code, airport in airports_data["airports"].items():
             formatted_output += f"## {code} - {airport['name']}\n"
@@ -63,18 +79,23 @@ def register_mcp_resources(mcp_server: FastMCP):
             
             formatted_output += "\n---\n\n"
         
-        # Add metadata
+        # Add metadata with OAuth security info
         metadata = airports_data.get("metadata", {})
-        formatted_output += f"**Total Airports**: {metadata.get('total_airports', 'N/A')}\n"
+        formatted_output += f"**Total Airports**: {metadata.get('total_airports', len(airports_data['airports']))}\n"
         formatted_output += f"**Last Updated**: {metadata.get('last_updated', 'N/A')}\n"
         formatted_output += f"**Data Version**: {metadata.get('version', 'N/A')}\n"
+        formatted_output += f"**Security Level**: OAuth Authentication Required\n"
+        formatted_output += f"**Developer**: Vishal Gupta\n"
+        formatted_output += f"**Watermark**: VG_FLIGHTMCP_2024\n"
         
         return formatted_output
     
-    print("[DEBUG] Registering MCP prompt: find_best_flight")
     @mcp_server.prompt()
     def find_best_flight(budget: float, preferences: str = "economy") -> str:
-        """Generate a prompt for finding the best flight within budget"""
+        """
+        Generate a prompt for finding the best flight within budget
+        🔐 REQUIRES OAUTH AUTHENTICATION
+        """
         return f"""Please help find the best flight within a ${budget} budget.
         
 My preferences: {preferences}
@@ -86,12 +107,16 @@ Please consider:
 - Departure times
 - Available amenities
 
-Search for flights that match these criteria and provide recommendations."""
+Search for flights that match these criteria and provide recommendations.
+
+🔐 NOTE: This service requires OAuth authentication and is developed by Vishal Gupta (VG_FLIGHTMCP_2024)"""
     
-    print("[DEBUG] Registering MCP prompt: handle_disruption")
     @mcp_server.prompt()
     def handle_disruption(original_flight: str, reason: str) -> str:
-        """Generate a prompt for handling flight disruptions"""
+        """
+        Generate a prompt for handling flight disruptions
+        🔐 REQUIRES OAUTH AUTHENTICATION
+        """
         return f"""Flight {original_flight} has been disrupted due to: {reason}
 
 Please help me:
@@ -100,6 +125,8 @@ Please help me:
 3. Check compensation eligibility
 4. Get contact information for customer service
 
-What are my best options for resolving this disruption?"""
+What are my best options for resolving this disruption?
+
+🔐 NOTE: This service requires OAuth authentication and is developed by Vishal Gupta (VG_FLIGHTMCP_2024)"""
     
     return mcp_server

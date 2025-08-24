@@ -2,6 +2,9 @@
 
 from pydantic import BaseModel
 from typing import Optional
+from .api_models import SearchFlightsRequest, CreateBookingRequest
+
+__all__ = ["SearchFlightsRequest", "CreateBookingRequest"]
 
 class SearchFlightsRequest(BaseModel):
     """Request model for searching flights."""
