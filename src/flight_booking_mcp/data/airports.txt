@@ -1,0 +1,96 @@
+# Airport Information Database
+
+## HYD - Rajiv Gandhi International Airport
+**Location**: Hyderabad, India
+**Timezone**: Asia/Kolkata
+**Coordinates**: 17.2403, 78.4294
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange
+**Airlines**: IndiGo, Air India, SpiceJet, Vistara
+
+---
+
+## DEL - Indira Gandhi International Airport
+**Location**: Delhi, India
+**Timezone**: Asia/Kolkata
+**Coordinates**: 28.5562, 77.1000
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange, Lounges
+**Airlines**: IndiGo, Air India, SpiceJet, Vistara, Emirates, Lufthansa
+
+---
+
+## BOM - Chhatrapati Shivaji Maharaj International Airport
+**Location**: Mumbai, India
+**Timezone**: Asia/Kolkata
+**Coordinates**: 19.0896, 72.8656
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange, Lounges
+**Airlines**: IndiGo, Air India, SpiceJet, Vistara, Emirates, British Airways
+
+---
+
+## BLR - Kempegowda International Airport
+**Location**: Bangalore, India
+**Timezone**: Asia/Kolkata
+**Coordinates**: 13.1986, 77.7066
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange
+**Airlines**: IndiGo, Air India, SpiceJet, Vistara, Emirates
+
+---
+
+## MAA - Chennai International Airport
+**Location**: Chennai, India
+**Timezone**: Asia/Kolkata
+**Coordinates**: 12.9941, 80.1709
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange
+**Airlines**: IndiGo, Air India, SpiceJet, Vistara
+
+---
+
+## CCU - Netaji Subhash Chandra Bose International Airport
+**Location**: Kolkata, India
+**Timezone**: Asia/Kolkata
+**Coordinates**: 22.6547, 88.4467
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange
+**Airlines**: IndiGo, Air India, SpiceJet, Vistara
+
+---
+
+## COK - Cochin International Airport
+**Location**: Kochi, India
+**Timezone**: Asia/Kolkata
+**Coordinates**: 10.1520, 76.4019
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange
+**Airlines**: IndiGo, Air India, SpiceJet, Emirates, Qatar Airways
+
+---
+
+## LHR - London Heathrow Airport
+**Location**: London, United Kingdom
+**Timezone**: Europe/London
+**Coordinates**: 51.4700, -0.4543
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange, Lounges, Hotels
+**Airlines**: British Airways, Virgin Atlantic, Emirates, Lufthansa, Air India
+
+---
+
+## JFK - John F. Kennedy International Airport
+**Location**: New York, United States
+**Timezone**: America/New_York
+**Coordinates**: 40.6413, -73.7781
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange, Lounges, Hotels
+**Airlines**: Delta, American Airlines, Emirates, British Airways, Air India
+
+---
+
+## DXB - Dubai International Airport
+**Location**: Dubai, United Arab Emirates
+**Timezone**: Asia/Dubai
+**Coordinates**: 25.2532, 55.3657
+**Facilities**: WiFi, Duty Free, Restaurants, ATM, Currency Exchange, Lounges, Hotels, Spa
+**Airlines**: Emirates, flydubai, Air India, British Airways, Lufthansa
+
+---
+
+**Total Airports**: 10
+**Countries**: India, United Kingdom, United States, United Arab Emirates
+**Last Updated**: 2024-08-25
+**Data Version**: 1.0

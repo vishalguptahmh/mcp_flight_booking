@@ -1,0 +1,140 @@
+{
+  "airports": {
+    "HYD": {
+      "code": "HYD",
+      "name": "Rajiv Gandhi International Airport",
+      "city": "Hyderabad",
+      "country": "India",
+      "timezone": "Asia/Kolkata",
+      "coordinates": {
+        "latitude": 17.2403,
+        "longitude": 78.4294
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange"],
+      "airlines": ["IndiGo", "Air India", "SpiceJet", "Vistara"]
+    },
+    "DEL": {
+      "code": "DEL",
+      "name": "Indira Gandhi International Airport",
+      "city": "Delhi",
+      "country": "India",
+      "timezone": "Asia/Kolkata",
+      "coordinates": {
+        "latitude": 28.5562,
+        "longitude": 77.1000
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange", "Lounges"],
+      "airlines": ["IndiGo", "Air India", "SpiceJet", "Vistara", "Emirates", "Lufthansa"]
+    },
+    "BOM": {
+      "code": "BOM",
+      "name": "Chhatrapati Shivaji Maharaj International Airport",
+      "city": "Mumbai",
+      "country": "India",
+      "timezone": "Asia/Kolkata",
+      "coordinates": {
+        "latitude": 19.0896,
+        "longitude": 72.8656
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange", "Lounges"],
+      "airlines": ["IndiGo", "Air India", "SpiceJet", "Vistara", "Emirates", "British Airways"]
+    },
+    "BLR": {
+      "code": "BLR",
+      "name": "Kempegowda International Airport",
+      "city": "Bangalore",
+      "country": "India",
+      "timezone": "Asia/Kolkata",
+      "coordinates": {
+        "latitude": 13.1986,
+        "longitude": 77.7066
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange"],
+      "airlines": ["IndiGo", "Air India", "SpiceJet", "Vistara", "Emirates"]
+    },
+    "MAA": {
+      "code": "MAA",
+      "name": "Chennai International Airport",
+      "city": "Chennai",
+      "country": "India",
+      "timezone": "Asia/Kolkata",
+      "coordinates": {
+        "latitude": 12.9941,
+        "longitude": 80.1709
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange"],
+      "airlines": ["IndiGo", "Air India", "SpiceJet", "Vistara"]
+    },
+    "CCU": {
+      "code": "CCU",
+      "name": "Netaji Subhash Chandra Bose International Airport",
+      "city": "Kolkata",
+      "country": "India",
+      "timezone": "Asia/Kolkata",
+      "coordinates": {
+        "latitude": 22.6547,
+        "longitude": 88.4467
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange"],
+      "airlines": ["IndiGo", "Air India", "SpiceJet", "Vistara"]
+    },
+    "COK": {
+      "code": "COK",
+      "name": "Cochin International Airport",
+      "city": "Kochi",
+      "country": "India",
+      "timezone": "Asia/Kolkata",
+      "coordinates": {
+        "latitude": 10.1520,
+        "longitude": 76.4019
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange"],
+      "airlines": ["IndiGo", "Air India", "SpiceJet", "Emirates", "Qatar Airways"]
+    },
+    "LHR": {
+      "code": "LHR",
+      "name": "London Heathrow Airport",
+      "city": "London",
+      "country": "United Kingdom",
+      "timezone": "Europe/London",
+      "coordinates": {
+        "latitude": 51.4700,
+        "longitude": -0.4543
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange", "Lounges", "Hotels"],
+      "airlines": ["British Airways", "Virgin Atlantic", "Emirates", "Lufthansa", "Air India"]
+    },
+    "JFK": {
+      "code": "JFK",
+      "name": "John F. Kennedy International Airport",
+      "city": "New York",
+      "country": "United States",
+      "timezone": "America/New_York",
+      "coordinates": {
+        "latitude": 40.6413,
+        "longitude": -73.7781
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange", "Lounges", "Hotels"],
+      "airlines": ["Delta", "American Airlines", "Emirates", "British Airways", "Air India"]
+    },
+    "DXB": {
+      "code": "DXB",
+      "name": "Dubai International Airport",
+      "city": "Dubai",
+      "country": "United Arab Emirates",
+      "timezone": "Asia/Dubai",
+      "coordinates": {
+        "latitude": 25.2532,
+        "longitude": 55.3657
+      },
+      "facilities": ["WiFi", "Duty Free", "Restaurants", "ATM", "Currency Exchange", "Lounges", "Hotels", "Spa"],
+      "airlines": ["Emirates", "flydubai", "Air India", "British Airways", "Lufthansa"]
+    }
+  },
+  "metadata": {
+    "total_airports": 10,
+    "countries": ["India", "United Kingdom", "United States", "United Arab Emirates"],
+    "last_updated": "2024-08-25",
+    "version": "1.0"
+  }
+}

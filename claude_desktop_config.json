@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "flight-booking-mcp": {
+      "command": "/Users/vishal.gupta/Documents/code/learning/mcpLearning/flight-booking-mcp-package/flight_booking_mcp/.venv/bin/flight-booking-mcp",
+      "args": ["--stdio"],
+      "env": {
+        "PYTHONPATH": "/Users/vishal.gupta/Documents/code/learning/mcpLearning/flight-booking-mcp-package/flight_booking_mcp/src"
+      }
+    }
+  }
+}

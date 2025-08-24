@@ -1,0 +1,25 @@
+[project]
+name = "flight-booking-mcp"
+version = "0.1.0"
+description = "Flight Booking MCP Server with OAuth 2.1 Authentication"
+readme = "README.md"
+authors = [
+    { name = "Vishal Gupta", email = "Vishal.Gupta@cyberark.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.116.1",
+    "fastmcp>=2.11.3",
+    "httpx>=0.28.1",
+    "pydantic>=2.11.7",
+    "pyjwt>=2.10.1",
+    "uvicorn>=0.35.0",
+]
+
+[project.scripts]
+flight-booking-mcp = "flight_booking_mcp.server:main"
+flight-booking-oauth = "flight_booking_mcp.auth.oauth_server:main"
+
+[build-system]
+requires = ["uv_build>=0.8.13,<0.9.0"]
+build-backend = "uv_build"
