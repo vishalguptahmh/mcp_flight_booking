@@ -1,294 +1,198 @@
-# VG Flight Booking MCP Server
+# 🛫 Flight Booking MCP Server
 
-**Author:** Vishal Gupta  
-**System:** VG_FLIGHTMCP_2024  
-**Version:** 2.1.0  
+[![Security Status](https://img.shields.io/badge/security-✅%20secured-green)](./SECURITY.md)
+[![OAuth 2.1](https://img.shields.io/badge/OAuth-2.1-blue)](./docs/OAUTH_ARCHITECTURE.md)
+[![Python](https://img.shields.io/badge/python-3.11+-blue)](https://python.org)
 
-A production-ready Model Context Protocol (MCP) server for flight booking operations with OAuth 2.1 authentication support.
+> **Secure OAuth 2.1 protected Model Context Protocol (MCP) server for flight booking operations**
 
-## Features
+## 🎥 Demo Video
 
-- **Flight Search**: Search flights between 29 global airports with real-time pricing
-- **Flight Booking**: Create and manage flight bookings with VG-prefixed booking IDs
-- **User Management**: Track user bookings and history
-- **OAuth 2.1 Security**: Complete OAuth authentication with JWT tokens (optional)
-- **VG Branding**: Professional system with VG-prefixed flight and booking IDs
-- **Comprehensive Logging**: Full audit trail for debugging and monitoring
+### MCP with OAuth 2.1 Authentication Demo
+[![Demo Video](https://img.shields.io/badge/▶️%20Watch-MCP%20OAuth%20Demo-red?style=for-the-badge)](./mcpWithOAuth2.mov)
 
-## Quick Start
+*Complete demonstration of MCP server with OAuth 2.1 authentication flow*
 
-### Installation
+### 🎬 Quick Preview (GIF)
+![OAuth Demo Preview](./mcpWithOAuth2_80s_hq.gif)
+*Key moments: OAuth setup → Authentication flow → MCP tool usage*
 
-```bash
-# Clone the repository
-git clone <repository-url>
-cd flight_booking_mcp
+<details>
+<summary>📱 <strong>Alternative Preview Options</strong> (Click to expand)</summary>
 
-# Create virtual environment and install
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -e .
-```
+| Preview | Size | Duration | Best For |
+|---------|------|----------|----------|
+| ![Short](./mcpWithOAuth2_short.gif) | 293KB | 15s | Quick overview |
+| ![Demo](./mcpWithOAuth2_demo.gif) | 639KB | 20s | Key features |
+| ![Medium](./mcpWithOAuth2_medium.gif) | 1.1MB | 30s | Detailed walkthrough |
 
-### Claude Desktop Configuration
+**📥 [Download Full Video: mcpWithOAuth2.mov](./mcpWithOAuth2.mov)** *(Complete 82-second demo)*
 
-The easiest way to get started is with Claude Desktop. You have two configuration options:
+</details>
 
-#### Option 1: Simple Setup (No Authentication)
-
-This is the recommended approach for most users. Create or update your Claude Desktop configuration file at `~/.config/claude-desktop/claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "flight-booking": {
-      "command": "/path/to/your/project/.venv/bin/flight-booking-mcp",
-      "args": ["--stdio"],
-      "env": {
-        "OAUTH_ENABLED": "false"
-      }
-    }
-  }
-}
-```
-
-#### Option 2: With OAuth Authentication
-
-If you need authentication features, use this configuration:
-
-```json
-{
-  "mcpServers": {
-    "flight-booking": {
-      "command": "/path/to/your/project/.venv/bin/flight-booking-mcp", 
-      "args": ["--stdio"],
-      "env": {
-        "OAUTH_ENABLED": "true",
-        "OAUTH_SERVER_URL": "http://localhost:9000",
-        "CLIENT_ID": "claude-desktop-client",
-        "CLIENT_SECRET": "claude-desktop-secret"
-      }
-    }
-  }
-}
-```
-
-### Running the System
-
-#### For Claude Desktop (Recommended)
-
-1. Configure Claude Desktop using one of the options above
-2. If using OAuth, start the OAuth server first:
-   ```bash
-   cd flight_booking_mcp
-   .venv/bin/python -m flight_booking_mcp.auth.oauth_server
-   ```
-3. Restart Claude Desktop
-4. Flight booking tools will be available in Claude Desktop
-
-#### For Development and Testing
+## 🚀 Quick Start
 
 ```bash
-# Run MCP server in HTTP mode
-.venv/bin/flight-booking-mcp
+# 1. Clone and setup
+git clone https://github.com/vishalguptahmh/mcp_flight_booking.git
+cd mcp_flight_booking
 
-# Run OAuth server (separate terminal)
-.venv/bin/python -m flight_booking_mcp.auth.oauth_server
+# 2. Environment setup
+cp .env.example .env
+# Edit .env with your values
+
+# 3. Start OAuth server
+.venv/bin/python -m src.flight_booking_mcp.auth.oauth_server
+
+# 4. Start MCP server (in another terminal)
+.venv/bin/python -m src.flight_booking_mcp.server
 ```
 
-## Available Tools
+## 🔐 Security Features
 
-### Flight Operations
+- ✅ **OAuth 2.1 Authentication** - Industry standard security
+- ✅ **JWT Token Validation** - Secure token-based access
+- ✅ **Environment Variables** - No hardcoded secrets
+- ✅ **GitHub Ready** - Safe for public repositories
 
-| Tool | Description | Parameters |
-|------|-------------|------------|
-| `get_available_airports` | Get list of all 29 supported airports | None |
-| `search_flights` | Search flights between airports | `origin`, `destination`, `date` |
-| `create_booking` | Create a flight booking | `flight_id`, `passenger_name`, `email` |
-| `get_user_bookings` | Get user's booking history | `email` |
+## 📱 Screenshots & Demo
 
-### OAuth Authentication (Optional)
+### 🎬 Complete Demo Video
+> **[📥 Download Demo Video: mcpWithOAuth2.mov](./mcpWithOAuth2.mov)**  
+> *Shows: MCP server setup, OAuth 2.1 authentication, and flight booking workflow*
 
-| Tool | Description | Parameters |
-|------|-------------|------------|
-| `authenticate_with_vscode` | VS Code style OAuth authentication | None |
+### Key Features Demonstrated
+- ✅ **OAuth 2.1 Setup** - Environment configuration and server startup
+- ✅ **Authentication Flow** - VS Code popup and browser OAuth flow  
+- ✅ **MCP Integration** - Secure tool authentication
+- ✅ **Flight Operations** - Search, booking, and user management
 
-## VS Code Integration
+### 📸 Screenshots
 
-The system includes VS Code-style authentication that mimics how VS Code handles OAuth flows (like GitHub authentication).
+#### OAuth Authentication
+![OAuth Flow](./docs/images/oauth-flow.png)
+*VS Code-style authentication popup with browser OAuth flow*
 
-### Using VS Code Authentication
+#### Flight Search Interface
+![Flight Search](./docs/images/flight-search.png)
+*Search flights between airports with real-time pricing*
 
-1. **Start OAuth Server**:
-   ```bash
-   cd flight_booking_mcp
-   .venv/bin/python -m flight_booking_mcp.auth.oauth_server
-   ```
+#### Booking Management
+![Booking Management](./docs/images/booking-management.png)
+*Create and manage flight bookings with confirmation*
 
-2. **Test VS Code Authentication**:
-   ```bash
-   python test_vscode_auth.py
-   ```
+## 🛠️ Features
 
-3. **Use in Claude Desktop**:
-   Simply ask Claude to authenticate with VS Code:
-   ```
-   Authenticate with VS Code for flight booking
-   ```
+| Feature | Status | Description |
+|---------|--------|-------------|
+| 🔍 **Flight Search** | ✅ | Search flights between airports |
+| 📝 **Create Booking** | ✅ | Book flights with passenger details |
+| 📋 **View Bookings** | ✅ | List user's flight reservations |
+| 🗺️ **Airport Data** | ✅ | Get available airports and details |
+| 🔐 **OAuth 2.1** | ✅ | Secure authentication flow |
+| 🎫 **JWT Tokens** | ✅ | Token-based authorization |
 
-### Authentication Flow
-
-The VS Code authentication process:
-
-1. Shows authorization popup (simulated)
-2. Opens browser to OAuth login page
-3. User logs in with demo credentials (demo-user/demo-pass)
-4. Browser redirects back to application
-5. Access token stored securely
-6. Ready for flight booking operations
-
-### Supported OAuth Clients
-
-- **claude-desktop-client** - For Claude Desktop integration
-- **vscode-mcp-client** - For VS Code extensions
-- **vg-desktop-client** - For desktop applications
-- **mcp-client** - For general MCP usage
-
-## Example Usage
-
-### Search Flights
-
-You can search for flights using natural language:
-
-```
-Search for flights from Pune to Delhi on 2024-12-01
-```
-
-The system will return available flights with details like:
-
-```json
-{
-  "flights": [
-    {
-      "id": "VG123",
-      "origin": "PNQ", 
-      "destination": "DEL",
-      "price": 4937,
-      "departure": "08:00",
-      "arrival": "11:30",
-      "airline": "SkyConnect"
-    }
-  ]
-}
-```
-
-### Create Booking
-
-To book a flight, simply ask:
-
-```
-Book flight VG123 for John Doe with email john@example.com
-```
-
-You'll receive a confirmation with a VG-prefixed booking ID:
-
-```json
-{
-  "booking_id": "VGAA7324",
-  "flight_id": "VG123", 
-  "status": "confirmed",
-  "confirmation_code": "CONFVGAA7324"
-}
-```
-
-## Architecture
-
-The project follows a clean, modular architecture:
+## 📁 Project Structure
 
 ```
 flight_booking_mcp/
-├── src/flight_booking_mcp/
-│   ├── server.py              # Main MCP server
-│   ├── tools.py               # MCP tool definitions  
-│   ├── resources.py           # MCP resource definitions
-│   ├── auth/                  # OAuth authentication (optional)
-│   │   ├── oauth_server.py    # OAuth 2.1 authorization server
-│   │   └── token_validator.py # JWT token validation
-│   ├── config/                # Configuration management
-│   │   ├── mcp_config.py      # MCP server configuration
-│   │   └── auth_config.py     # OAuth configuration
-│   ├── services/              # Business logic
-│   │   └── flight_service.py  # Flight operations
-│   ├── models/                # Data models
-│   └── data/
-│       └── airports.json      # Airport database (29 airports)
-├── tests/                     # Unit tests
-├── docs/                      # Documentation
-└── README.md
+├── 🔐 .env.example          # Environment template
+├── 📚 docs/                 # Documentation
+├── 🏗️ src/flight_booking_mcp/
+│   ├── 🔧 auth/            # OAuth 2.1 implementation
+│   ├── ⚙️ config/          # Configuration management
+│   ├── 🛠️ services/        # Business logic
+│   └── 🎯 tools.py         # MCP tools (protected)
+└── 🧪 tests/               # Test suites
 ```
 
-## Security Features
+## 🔧 Configuration
 
-When OAuth is enabled, the system provides:
+### Environment Variables
+```bash
+# OAuth Server
+JWT_SECRET=your-secret-key
+OAUTH_SERVER_PORT=9000
 
-- **OAuth 2.1 Compliance**: Following the latest OAuth standards
-- **JWT Tokens**: Industry-standard token-based authentication
-- **Client Validation**: Only authorized clients can access the system
-- **Audit Logging**: Comprehensive request/response logging
-- **VG System Tags**: All components are tagged for tracking and identification
+# Client Credentials
+CLAUDE_DESKTOP_CLIENT_SECRET=your-secret
+MCP_CLIENT_SECRET=your-secret
+VSCODE_CLIENT_SECRET=your-secret
+```
 
-## Supported Airports
+### MCP Client Setup (Claude Desktop)
+```json
+{
+  "mcpServers": {
+    "flight-booking": {
+      "command": "python",
+      "args": ["-m", "flight_booking_mcp.server"],
+      "env": {
+        "CLIENT_SECRET": "your-claude-desktop-secret"
+      }
+    }
+  }
+}
+```
 
-The system currently supports 29 major airports worldwide, including:
+## 🔗 API Endpoints
 
-**India**: PNQ (Pune), DEL (Delhi), BOM (Mumbai), BLR (Bangalore), MAA (Chennai), CCU (Kolkata), COK (Kochi), HYD (Hyderabad), AMD (Ahmedabad), GOI (Goa), JAI (Jaipur), LKO (Lucknow), and more
+### OAuth Server (Port 9000)
+- `GET /` - OAuth login page
+- `POST /oauth/token` - Token endpoint
+- `GET /.well-known/oauth-authorization-server` - Server metadata
+- `GET /.well-known/jwks.json` - JSON Web Key Set
 
-**International**: LHR (London), JFK (New York), DXB (Dubai), CDG (Paris), HND (Tokyo), SYD (Sydney), FRA (Frankfurt)
+### MCP Tools (Authenticated)
+- `search_flights(origin, destination, date)` - 🔐 Search available flights
+- `create_booking(flight_id, passenger_name, email)` - 🔐 Book a flight
+- `get_user_bookings(email)` - 🔐 Get user's bookings
+- `get_available_airports()` - 🔐 List all airports
 
-## Development
-
-### Running Tests
+## 🧪 Testing
 
 ```bash
-pytest tests/
+# Run all tests
+python -m pytest tests/
+
+# Test OAuth flow
+python examples/oauth_client_demo.py
+
+# Test MCP authentication
+python examples/test_mcp_auth.py
 ```
 
-### Requirements
+## 📖 Documentation
 
-- **Python 3.13+** required
-- **FastMCP** for MCP protocol implementation
-- **FastAPI** for OAuth server
-- **Pydantic** for data validation
-- **PyJWT** for token handling
+- 📋 [**OAuth Architecture**](./docs/OAUTH_ARCHITECTURE.md) - Detailed auth flow
+- 🔒 [**Security Guide**](./SECURITY.md) - Security setup and best practices
+- 🚀 [**Deployment Guide**](./docs/README_OAUTH_DEPLOYMENT.md) - Production deployment
 
-## Documentation
+## 🤝 Contributing
 
-Additional documentation is available in the `docs/` directory:
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
 
-- [OAuth Architecture](docs/OAUTH_ARCHITECTURE.md)
-- [Logging Guide](docs/LOGGING_GUIDE.md) 
-- [OAuth Deployment](docs/README_OAUTH_DEPLOYMENT.md)
+## 📜 License
 
-## OAuth Server Credentials
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-When using OAuth authentication, you can test with these demo credentials:
+## 🏷️ System Info
 
-- **Username**: `demo-user`
-- **Password**: `demo-pass`
-- **OAuth Server**: `http://localhost:9000`
-
-## System Identification
-
-All components in the VG Flight Booking system are tagged with `VG_FLIGHTMCP_2024` for easy identification:
-
-- Flight IDs follow the pattern: `VG123`, `VG456`, etc.
-- Booking IDs follow the pattern: `VGAA7324`, `VGBB8901`, etc.
-- All API responses include VG system signatures
-
-## License
-
-© 2024 Vishal Gupta. All rights reserved.
+**System:** VG_FLIGHTMCP_2024  
+**Author:** Vishal Gupta  
+**Version:** 1.0.0  
+**Last Updated:** August 2025
 
 ---
 
-**VG Flight Booking MCP** - Professional flight booking integration for Claude Desktop
+<div align="center">
+
+**🛡️ Security First • 🚀 Production Ready • 📱 Developer Friendly**
+
+Made with ❤️ for the MCP community
+
+</div>
